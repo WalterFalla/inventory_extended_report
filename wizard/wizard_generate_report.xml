@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="run_extended_inventory_report">
+            <field name="name">Run Realtime Inventory Report</field>
+            <field name="model">extended.inventory.report</field>
+            <field name="arch" type="xml">
+		<form>
+                    <label string="Press Run to get Real Time Valuation"/>
+                    <newline/>
+                    <group colspan="2">
+                        <button icon="gtk-cancel" special="cancel"
+                            string="Cancel" colspan="1"/>
+                        <button name="run_realtime_report" string="Yes"
+                            type="object" icon="gtk-ok" colspan="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_extended_inventory_report" model="ir.actions.act_window">
+            <field name="name">Export Realtime Inventory</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">extended.inventory.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+          action="action_extended_inventory_report"
+          id="menu_run_extended_inventory_report"
+          parent="stock.menu_stock_inventory_control"/>
+
+    </data>
+</openerp>
